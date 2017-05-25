@@ -1,0 +1,25 @@
+.Search-form-group {
+  display: block;
+}
+
+.Search-form-inline, 
+.Search-form-group, 
+.Search-input {
+  display: block;
+}
+
+.Search-input {
+  width: 100%;
+}
+
+.Search-ul {
+  padding-left: 0;
+}
+
+.Search-list-item {
+  list-style: none;
+}
+
+.Search-active {
+  background-color: lightsteelblue;
+}
