@@ -47,13 +47,19 @@ class Search extends Component {
     console.log(keyCode);
     if ( keyCode === 40 ) {
       // move cursor down
-      let newCursor = cursor + 1 < autocomplete.length - 1 ? cursor + 1 : autocomplete.length - 1;
-      this.setState({ cursor: newCursor });
+      this.setState(prevState => {
+        let { cursor, autocomplete } = prevState
+        let newCursor = cursor + 1 < autocomplete.length - 1 ? cursor + 1 : autocomplete.length - 1;
+        return { cursor: newCursor }
+      });
     } else if ( keyCode === 38 ) {
       // move cursor up
       e.preventDefault();
-      let newCursor = cursor - 1 >= 0 ? cursor - 1 : -1;
-      this.setState({cursor: newCursor});
+      this.setState(prevState => {
+        let { cursor } = prevState
+        let newCursor = cursor - 1 >= 0 ? cursor - 1 : -1;
+        return {cursor: newCursor};
+      });
     } else if ( keyCode === 13 && cursor >= 0 ) {
       let newSearch = autocomplete[cursor];
       this.formInput.value = newSearch;
